@@ -110,11 +110,12 @@ export function TodoList() {
         </button>
       </form>
 
+      <Statistics data={getStatistics()} />
+      
       {!todo.length ? (
         <EmptyTodoList />
       ) : (
         <>
-          <Statistics data={getStatistics()} />
           <ul className={styles.todoList}>
             {todo.map(({ id, name, complete }) => (
               <Task

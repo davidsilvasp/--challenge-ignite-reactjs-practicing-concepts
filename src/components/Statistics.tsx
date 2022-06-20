@@ -1,10 +1,10 @@
 import styles from "./Statistics.module.css";
 
-interface Data {
+type Data = {
   total: number;
   completed: number;
   progress: number;
-}
+};
 
 interface StatisticsProps {
   data: Data;
@@ -27,11 +27,13 @@ export function Statistics({ data }: StatisticsProps) {
         </li>
       </ul>
 
-      <div className={styles.progressBar}>
-        <progress id="progress" value={data.progress} max="100">
-          {data.progress}%
-        </progress>
-      </div>
+      {data.total > 0 && (
+        <div className={styles.progressBar}>
+          <progress id="progress" value={data.progress} max="100">
+            {data.progress}%
+          </progress>
+        </div>
+      )}
     </div>
   );
 }
